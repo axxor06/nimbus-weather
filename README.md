@@ -109,15 +109,9 @@ index.html
 
 ## 📸 Preview
 
-Add screenshots here after uploading:
-
-```md
-![Home](screenshots/home.png)
-![Search](screenshots/search.png)
-![World](screenshots/world.png)
-```
-
----
+![Home](screenshots/home.jpg)
+![Search](screenshots/search.jpg)
+![World](screenshots/world.jpg)
 
 ## 🌐 Future Improvements
 
