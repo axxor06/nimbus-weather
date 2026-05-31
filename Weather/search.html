@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="img/icon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/search.css" />
+  <title>Nimbus — Search</title>
+</head>
+<body>
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <div id="app">
+    <header class="page-header">
+      <h1 class="page-title"><i class="fa-solid fa-magnifying-glass"></i> Search City</h1>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-wrap">
+      <div class="search-bar">
+        <i class="fa-solid fa-location-dot"></i>
+        <input class="search-input" id="search-input" type="text" placeholder="City name, e.g. Tokyo…" autocomplete="off" />
+        <button class="search-btn" id="search-btn"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+      <div class="search-suggestions" id="suggestions"></div>
+    </div>
+
+    <!-- States -->
+    <div class="state-msg" id="msg-idle">
+      <i class="fa-solid fa-earth-asia state-icon"></i>
+      <p>Search any city to explore its current weather</p>
+    </div>
+    <div class="state-msg hidden" id="msg-error">
+      <i class="fa-solid fa-triangle-exclamation state-icon error-icon"></i>
+      <p id="error-text">City not found. Please try another name.</p>
+    </div>
+
+    <!-- Result -->
+    <div id="result-area" class="hidden">
+      <!-- Main result card -->
+      <div class="result-hero glass-card">
+        <div class="result-city-row">
+          <div>
+            <div class="result-city" id="r-city">--</div>
+            <div class="result-country" id="r-country">--</div>
+          </div>
+          <div class="unit-toggle-wrap">
+            <button class="unit-btn" id="unit-toggle">°C</button>
+          </div>
+        </div>
+        <div class="result-main-row">
+          <div class="result-icon-wrap">
+            <img class="result-icon float-anim" id="r-icon" src="img/sun.png" alt="" />
+          </div>
+          <div class="result-temp-block">
+            <div class="result-temp" id="r-temp">--°</div>
+            <div class="result-desc" id="r-desc">--</div>
+            <div class="result-feels" id="r-feels">Feels like --°</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stat row -->
+      <div class="stat-grid">
+        <div class="stat-card">
+          <i class="fa-solid fa-wind"></i>
+          <div class="sv" id="r-wind">--</div>
+          <div class="sl">Wind</div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-droplet"></i>
+          <div class="sv" id="r-humid">--</div>
+          <div class="sl">Humidity</div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-gauge-high"></i>
+          <div class="sv" id="r-pressure">--</div>
+          <div class="sl">Pressure</div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-eye"></i>
+          <div class="sv" id="r-vis">--</div>
+          <div class="sl">Visibility</div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-sun"></i>
+          <div class="sv" id="r-sunrise">--</div>
+          <div class="sl">Sunrise</div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-regular fa-moon"></i>
+          <div class="sv" id="r-sunset">--</div>
+          <div class="sl">Sunset</div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-temperature-high"></i>
+          <div class="sv" id="r-minmax">--</div>
+          <div class="sl">Min / Max</div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-cloud"></i>
+          <div class="sv" id="r-cloud">--</div>
+          <div class="sl">Cloud Cover</div>
+        </div>
+      </div>
+
+      <!-- 5-day forecast -->
+      <div class="glass-card">
+        <div class="card-title">5-DAY FORECAST</div>
+        <div class="forecast-scroll" id="r-forecast"></div>
+      </div>
+    </div>
+
+    <!-- Bottom Nav -->
+    <nav class="bottom-nav">
+      <a href="index.html" class="nav-item">
+        <i class="fa-solid fa-house"></i><span>Home</span>
+      </a>
+      <a href="search.html" class="nav-item active">
+        <i class="fa-solid fa-magnifying-glass"></i><span>Search</span>
+      </a>
+      <a href="world.html" class="nav-item">
+        <i class="fa-solid fa-earth-americas"></i><span>World</span>
+      </a>
+    </nav>
+  </div>
+
+  <script src="js/search.js"></script>
+</body>
+</html>

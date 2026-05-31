@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="img/icon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Nimbus Weather</title>
+</head>
+<body>
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div id="app">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="location-pill">
+          <i class="fa-solid fa-location-dot pulse-icon"></i>
+          <span id="city-name">Detecting…</span>
+        </div>
+        <div id="last-updated" class="last-updated"></div>
+      </div>
+      <div class="header-right">
+        <button class="unit-toggle" id="unit-toggle" title="Toggle °C / °F">
+          <span id="unit-label">°C</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero-icon-wrap">
+        <div class="icon-glow" id="icon-glow"></div>
+        <img class="hero-icon float-anim" id="hero-icon" src="img/sun.png" alt="weather" />
+      </div>
+      <div class="hero-temp-block">
+        <div class="hero-temp" id="hero-temp">--°</div>
+        <div class="hero-desc" id="hero-desc">Loading…</div>
+        <div class="hero-feels" id="hero-feels">Feels like --°</div>
+      </div>
+    </section>
+
+    <!-- Stat Pills Row -->
+    <div class="stat-pills">
+      <div class="pill">
+        <i class="fa-solid fa-droplet"></i>
+        <span id="stat-humidity">--</span>
+        <small>Humidity</small>
+      </div>
+      <div class="pill">
+        <i class="fa-solid fa-wind"></i>
+        <span id="stat-wind">--</span>
+        <small>Wind</small>
+      </div>
+      <div class="pill">
+        <i class="fa-solid fa-gauge-high"></i>
+        <span id="stat-pressure">--</span>
+        <small>Pressure</small>
+      </div>
+      <div class="pill">
+        <i class="fa-solid fa-eye"></i>
+        <span id="stat-visibility">--</span>
+        <small>Visibility</small>
+      </div>
+    </div>
+
+    <!-- Sun Arc Card -->
+    <div class="glass-card sun-card">
+      <div class="sun-arc-label">
+        <div><i class="fa-solid fa-sun"></i> <span id="sunrise-time">--:--</span></div>
+        <div class="arc-center-label" id="sun-arc-time">Sunrise → Sunset</div>
+        <div><span id="sunset-time">--:--</span> <i class="fa-regular fa-moon"></i></div>
+      </div>
+      <div class="sun-arc-track">
+        <div class="sun-arc-bar" id="sun-arc-bar"></div>
+        <div class="sun-dot" id="sun-dot"></div>
+      </div>
+    </div>
+
+    <!-- Today + Forecast -->
+    <div class="cards-row">
+      <div class="glass-card today-card">
+        <div class="card-title">TODAY</div>
+        <img class="forecast-img" id="today-icon" src="img/sun.png" alt="" />
+        <div class="today-temps">
+          <span id="today-min">--°</span>
+          <span class="sep">/</span>
+          <span id="today-max">--°</span>
+        </div>
+        <div class="today-label" id="today-label">--</div>
+      </div>
+
+      <div class="glass-card forecast-card">
+        <div class="card-title">6-DAY FORECAST</div>
+        <div class="forecast-scroll" id="forecast-box"></div>
+      </div>
+    </div>
+
+    <!-- Hourly -->
+    <div class="glass-card hourly-card">
+      <div class="card-title">HOURLY</div>
+      <div class="hourly-scroll" id="hourly-box"></div>
+    </div>
+
+    <!-- Extra details -->
+    <div class="details-grid">
+      <div class="detail-tile">
+        <i class="fa-solid fa-cloud"></i>
+        <div class="detail-val" id="detail-cloud">--</div>
+        <div class="detail-lbl">Cloud Cover</div>
+      </div>
+      <div class="detail-tile">
+        <i class="fa-solid fa-temperature-high"></i>
+        <div class="detail-val" id="detail-dew">--</div>
+        <div class="detail-lbl">Dew Point</div>
+      </div>
+      <div class="detail-tile">
+        <i class="fa-solid fa-compass"></i>
+        <div class="detail-val" id="detail-winddir">--</div>
+        <div class="detail-lbl">Wind Dir</div>
+      </div>
+      <div class="detail-tile">
+        <i class="fa-solid fa-water"></i>
+        <div class="detail-val" id="detail-sea">--</div>
+        <div class="detail-lbl">Sea Level</div>
+      </div>
+    </div>
+
+    <!-- Bottom nav -->
+    <nav class="bottom-nav">
+      <a href="index.html" class="nav-item active">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </a>
+      <a href="search.html" class="nav-item">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>Search</span>
+      </a>
+      <a href="world.html" class="nav-item">
+        <i class="fa-solid fa-earth-americas"></i>
+        <span>World</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Loading overlay -->
+  <div id="loading-overlay" class="loading-overlay">
+    <div class="loader-ring"></div>
+    <p>Fetching your sky…</p>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

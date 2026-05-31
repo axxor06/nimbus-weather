@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="img/icon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/world.css" />
+  <title>Nimbus — World</title>
+</head>
+<body>
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div id="app">
+    <header class="world-header">
+      <div>
+        <h1 class="world-title">World Weather</h1>
+        <div class="world-date" id="world-date"></div>
+      </div>
+      <button class="add-btn" id="add-btn" title="Add city">
+        <i class="fa-solid fa-plus" id="add-icon"></i>
+      </button>
+    </header>
+
+    <!-- Add City Drawer -->
+    <div class="add-drawer glass-card" id="add-drawer">
+      <div class="drawer-title">Add a city</div>
+      <div class="drawer-search">
+        <i class="fa-solid fa-location-dot"></i>
+        <input type="text" class="drawer-input" id="drawer-input" placeholder="City name…" autocomplete="off" />
+        <button class="drawer-go" id="drawer-go"><i class="fa-solid fa-plus"></i></button>
+      </div>
+      <div class="drawer-msg" id="drawer-msg"></div>
+    </div>
+
+    <!-- City Grid -->
+    <div class="city-grid" id="city-grid">
+      <!-- Cards populated by JS -->
+    </div>
+
+    <!-- Empty hint -->
+    <div class="empty-hint" id="empty-hint" style="display:none">
+      <i class="fa-solid fa-earth-americas"></i>
+      <p>No cities added yet. Tap <strong>+</strong> to start.</p>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item">
+      <i class="fa-solid fa-house"></i><span>Home</span>
+    </a>
+    <a href="search.html" class="nav-item">
+      <i class="fa-solid fa-magnifying-glass"></i><span>Search</span>
+    </a>
+    <a href="world.html" class="nav-item active">
+      <i class="fa-solid fa-earth-americas"></i><span>World</span>
+    </a>
+  </nav>
+
+  <script src="js/world.js"></script>
+</body>
+</html>
