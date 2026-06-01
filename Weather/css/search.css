@@ -173,22 +173,21 @@ body {
 
 /* Forecast scroll */
 .forecast-scroll {
-  display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px;
-  scrollbar-width: none;
+  display: grid; grid-auto-flow: column; grid-auto-columns: 60px;
+  gap: 7px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none;
 }
 .forecast-scroll::-webkit-scrollbar { display: none; }
 .fc-item {
-  flex-shrink: 0;
   background: rgba(255,255,255,0.05); border: 1px solid var(--border);
-  border-radius: 14px; padding: 10px 8px;
+  border-radius: 13px; padding: 8px 6px;
   display: flex; flex-direction: column; align-items: center; gap: 4px;
-  min-width: 64px; transition: all 0.25s;
+  width: 60px; transition: all 0.25s;
 }
 .fc-item:hover { background: var(--surface-hover); transform: translateY(-3px); }
-.fc-item .fc-day { font-size: 0.68rem; font-weight: 600; color: var(--text-muted); }
-.fc-item img { width: 28px; height: 28px; object-fit: contain; }
-.fc-item .fc-temp { font-family: var(--mono); font-size: 0.75rem; }
-.fc-item .fc-desc { font-size: 0.6rem; color: var(--text-muted); text-align: center; text-transform: capitalize; }
+.fc-item .fc-day { font-size: 0.65rem; font-weight: 600; color: var(--text-muted); }
+.fc-item img { width: 26px; height: 26px; object-fit: contain; }
+.fc-item .fc-temp { font-family: var(--mono); font-size: 0.72rem; white-space: nowrap; }
+.fc-item .fc-desc { font-size: 0.58rem; color: var(--text-muted); text-align: center; text-transform: capitalize; line-height: 1.2; }
 
 /* Bottom Nav */
 .bottom-nav {
@@ -219,3 +218,40 @@ body {
 @media (max-width: 360px) {
   .stat-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ── Skeleton additions for search page ── */
+.sk{
+  background:linear-gradient(90deg,rgba(255,255,255,0.06) 0%,rgba(255,255,255,0.12) 50%,rgba(255,255,255,0.06) 100%);
+  background-size:200% 100%;animation:shimmer 1.6s infinite;border-radius:12px;
+}
+@keyframes shimmer{to{background-position:-200% 0;}}
+
+/* ── Wind card in search ── */
+.glass-card .wind-compass-row{display:flex;align-items:center;gap:16px;}
+.glass-card .compass{
+  width:64px;height:64px;border-radius:50%;border:2px solid var(--border);
+  background:rgba(255,255,255,0.04);position:relative;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.glass-card .compass-needle{
+  position:absolute;width:3px;height:24px;border-radius:2px;
+  background:linear-gradient(to bottom,var(--accent),transparent);
+  transform-origin:50% 100%;bottom:50%;left:50%;margin-left:-1.5px;
+  transition:transform 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+.glass-card .compass-dirs{position:absolute;inset:0;}
+.glass-card .compass-dirs span{
+  position:absolute;font-size:0.52rem;font-weight:700;color:var(--text-muted);
+  left:50%;top:50%;
+}
+.glass-card .dir-n{transform:translate(-50%,-230%)!important;}
+.glass-card .dir-s{transform:translate(-50%,130%)!important;}
+.glass-card .dir-e{transform:translate(120%,-50%)!important;}
+.glass-card .dir-w{transform:translate(-280%,-50%)!important;}
+.wind-speed-big{font-family:var(--mono);font-size:1.7rem;font-weight:700;line-height:1;}
+.wind-unit-small{font-size:0.68rem;color:var(--text-muted);}
+.wind-dir-text{font-size:0.78rem;color:var(--text-muted);margin-top:4px;}
+.wind-gust{font-size:0.7rem;color:#ff8c5e;margin-top:2px;}
+
+/* fix stat-grid to 2-col on small */
+@media(max-width:380px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
