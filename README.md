@@ -138,3 +138,4 @@ Diploma in Computer Hardware Engineering
 ⭐ If you like this project, give it a star!
 
 </div>
+<h2>Live - https://crimson-haze-fae7.arjunkrishnanps6.workers.dev/</h2>
