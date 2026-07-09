@@ -90,7 +90,7 @@ This project helped me practice:
 Clone the repository
 
 ```bash
-git clone https://github.com/your-username/nimbus-weather.git
+git clone https://github.com/axxor06/nimbus-weather.git
 ```
 
 Open project folder
